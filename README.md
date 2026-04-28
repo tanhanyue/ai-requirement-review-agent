@@ -1,1 +1,38 @@
-我构建了一个 AI 驱动的需求评审与排期 Agent，用于解决研发团队在 PRD 评审、任务拆解和排期预估中高度依赖人工经验、反馈链路长的问题。该 Agent 接入 Jira、飞书文档和 Git 仓库，自动读取需求文档，识别不完整字段、潜在技术风险和依赖关系，并生成任务拆解、负责人建议和初版 token/工时 plan。核心流程是：PRD 提交后自动触发分析，多 Agent 分别负责需求完整性检查、技术依赖识别、历史任务对比和排期建议，最终汇总成评审报告并同步到 Jira。上线后，需求评审平均耗时从 2 天缩短到 4 小时，排期返工率降低约 35%，每周节省 PM 和 Tech Lead 约 12 小时沟通成本。
+# AI Requirement Review Agent
+
+An AI-driven agent system for requirement review, task breakdown, and engineering planning.
+
+## Problem
+
+Product requirement reviews often depend heavily on PM and Tech Lead experience.  
+PRDs may miss key fields, technical dependencies are discovered late, and engineering plans require repeated manual alignment.
+
+## Solution
+
+This project builds an AI Agent workflow that automatically analyzes PRDs, identifies missing information, detects technical risks, and generates an initial task breakdown and implementation plan.
+
+## Core Workflow
+
+1. PRD is submitted through Feishu Docs or Jira
+2. Requirement Review Agent checks completeness and ambiguity
+3. Dependency Analysis Agent scans Git repository and historical Jira issues
+4. Planning Agent generates task breakdown, owner suggestions, and estimated workload
+5. Final report is synced back to Jira
+
+## Tech Stack
+
+- Python
+- LangChain / OpenAI API
+- Jira API
+- Feishu Docs API
+- GitHub API
+- FastAPI
+
+## Result
+
+After adoption, the average requirement review time was reduced from 2 days to 4 hours.  
+Planning rework rate decreased by around 35%, saving PMs and Tech Leads about 12 hours per week.
+
+## Demo
+
+This repository contains a conceptual implementation and workflow design for the AI Requirement Review Agent.
